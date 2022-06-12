@@ -6,16 +6,16 @@ from PIL import Image
 import streamlit.components.v1 as components
 # import matplotlib.pyplot as plt
 # from tensorflow import keras
-import tensorflow
+import tensorflow as tf
 from tensorflow import keras
 import joblib
 import operator
 import sys
 
-from tensorflow.keras.preprocessing.image import load_img
-from tensorflow.keras.preprocessing.image import img_to_array
-from tensorflow.keras.applications.mobilenet import preprocess_input
-from tensorflow.keras.applications.mobilenet import decode_predictions
+from tf.keras.preprocessing.image import load_img
+from tf.keras.preprocessing.image import img_to_array
+from tf.keras.applications.mobilenet import preprocess_input
+from tf.keras.applications.mobilenet import decode_predictions
 
 from PIL import Image
 sys.modules['Image'] = Image 
