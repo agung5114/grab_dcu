@@ -59,7 +59,7 @@ def getPrediction(data,model):
 # st.set_page_config(layout='wide')
 
 def main():
-    st.subheader("Heal - Food Analyzer")
+    st.subheader("Food AI Vision")
     with st.expander('Open Camera'):
         data1 = st.camera_input('')
     with st.expander('Upload A Photo'):
