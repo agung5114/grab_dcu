@@ -33,7 +33,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # from cvmodel import model
 # from cvmodel import getPrediction
-model = keras.models.load_model('saved_model.pb')
+model = keras.models.load_model('/saved_model.pb')
 # model = keras.models.load_model('grabcv.h5')
 food = ['beefburger','beefcurry','friedchicken','lambskewer','panacota','springsalad']
 
