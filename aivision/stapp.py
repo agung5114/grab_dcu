@@ -29,8 +29,8 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-from modelcv import model
-from modelcv import getPrediction
+from cvmodel import model
+from cvmodel import getPrediction
 
 # model = keras.models.load_model('grabcv.h5')
 food = ['beefburger','beefcurry','friedchicken','lambskewer','panacota','springsalad']
