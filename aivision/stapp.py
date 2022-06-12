@@ -30,7 +30,6 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 model = keras.models.load_model('model/grabcv.h5')
-dbfood = pd.read_csv('dbfood.csv',sep=";")
 food = ['beefburger','beefcurry','friedchicken','lambskewer','panacota','springsalad']
 
 def getPrediction(data,model):
