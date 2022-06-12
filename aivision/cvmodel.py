@@ -8,7 +8,7 @@ from PIL import Image
 import sys
 sys.modules['Image'] = Image
 
-model = keras.models.load_model('grabcv.h5')
+model = tensorflow.keras.models.load_model('grabcv.h5')
 food = ['beefburger','beefcurry','friedchicken','lambskewer','panacota','springsalad']
 
 def getPrediction(data,model):
