@@ -29,34 +29,34 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-from cvmodel import model
-from cvmodel import getPrediction
-
+# from cvmodel import model
+# from cvmodel import getPrediction
+model = tensorflow.keras.load_model('raw.github.com/agung5114/grab_dcu/blob/main/aivision/grabcv.h5')
 # model = keras.models.load_model('grabcv.h5')
 food = ['beefburger','beefcurry','friedchicken','lambskewer','panacota','springsalad']
 
-# def getPrediction(data,model):
-#     img = Image.open(data)
-#     newsize = (224, 224)
-#     image = img.resize(newsize)
-#     image = img_to_array(image)
-#     image = image.reshape((1, image.shape[0], image.shape[1], image.shape[2]))
-#     image = preprocess_input(image)
-#     yhat = model.predict(image)
-#     label = yhat[0]
-#     prob = []
-#     for i in range(len(label)):
-#         # prob.append(i)
-#         prob.append(np.round(label[i]*100,2))
-#     data = {'Food': food, 'Prob': prob}
-#     # return data
-#     dfhasil = pd.DataFrame.from_dict(data)
+def getPrediction(data,model):
+    img = Image.open(data)
+    newsize = (224, 224)
+    image = img.resize(newsize)
+    image = img_to_array(image)
+    image = image.reshape((1, image.shape[0], image.shape[1], image.shape[2]))
+    image = preprocess_input(image)
+    yhat = model.predict(image)
+    label = yhat[0]
+    prob = []
+    for i in range(len(label)):
+        # prob.append(i)
+        prob.append(np.round(label[i]*100,2))
+    data = {'Food': food, 'Prob': prob}
+    # return data
+    dfhasil = pd.DataFrame.from_dict(data)
 
-#     dfhasil['Probability'] = dfhasil.apply(lambda x: f"{x['Prob']}%", axis=1)
-#     top3 = dfhasil.nlargest(3, 'Prob')
-#     # top = dict(zip(food, prob))
-#     # top3 = dict(sorted(top.items(), key=operator.itemgetter(1), reverse=True)[:3])
-#     return top3
+    dfhasil['Probability'] = dfhasil.apply(lambda x: f"{x['Prob']}%", axis=1)
+    top3 = dfhasil.nlargest(3, 'Prob')
+    # top = dict(zip(food, prob))
+    # top3 = dict(sorted(top.items(), key=operator.itemgetter(1), reverse=True)[:3])
+    return top3
 
 # st.set_page_config(layout='wide')
 
