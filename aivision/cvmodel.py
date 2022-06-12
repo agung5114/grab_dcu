@@ -5,6 +5,7 @@ from tensorflow.keras.applications.mobilenet import preprocess_input
 from tensorflow.keras.applications.mobilenet import decode_predictions
 
 from PIL import Image
+import sys
 sys.modules['Image'] = Image
 
 model = keras.models.load_model('grabcv.h5')
