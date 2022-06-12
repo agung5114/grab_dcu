@@ -6,15 +6,14 @@ from PIL import Image
 import streamlit.components.v1 as components
 # import matplotlib.pyplot as plt
 from tensorflow import keras
-import tensorflow as tf
 import joblib
 import operator
 import sys
 
-from tf.keras.preprocessing.image import load_img
-from tf.keras.preprocessing.image import img_to_array
-from tf.keras.applications.mobilenet import preprocess_input
-from tf.keras.applications.mobilenet import decode_predictions
+from tensorflow.keras.preprocessing.image import load_img
+from tensorflow.keras.preprocessing.image import img_to_array
+from tensorflow.keras.applications.mobilenet import preprocess_input
+from tensorflow.keras.applications.mobilenet import decode_predictions
 
 from PIL import Image
 sys.modules['Image'] = Image 
@@ -30,10 +29,8 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-# from cvmodel import model
-# from cvmodel import getPrediction
-# model = keras.models.load_model('/saved_model.pb')
-model = keras.models.load_model('grabcv.h5')
+model = keras.models.load_model('model/grabcv.h5')
+dbfood = pd.read_csv('dbfood.csv',sep=";")
 food = ['beefburger','beefcurry','friedchicken','lambskewer','panacota','springsalad']
 
 def getPrediction(data,model):
@@ -62,7 +59,7 @@ def getPrediction(data,model):
 # st.set_page_config(layout='wide')
 
 def main():
-    st.subheader("Food AI Vision")
+    st.subheader("Heal - Food Analyzer")
     with st.expander('Open Camera'):
         data1 = st.camera_input('')
     with st.expander('Upload A Photo'):
@@ -89,6 +86,8 @@ def main():
         hasil.set_index('Food', inplace=True)
         st.table(hasil)
         # st.write(f'prediction: {hasil}')
+
+
 
         
 
