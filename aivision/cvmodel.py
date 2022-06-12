@@ -7,6 +7,9 @@ from tensorflow.keras.applications.mobilenet import decode_predictions
 from PIL import Image
 sys.modules['Image'] = Image
 
+model = keras.models.load_model('grabcv.h5')
+food = ['beefburger','beefcurry','friedchicken','lambskewer','panacota','springsalad']
+
 def getPrediction(data,model):
     img = Image.open(data)
     newsize = (224, 224)
